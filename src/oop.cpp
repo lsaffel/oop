@@ -40,6 +40,7 @@ public:
             SubscribersCount--;
     }
 
+    // adds a new title to the videos list
     void PublishVideo(string title) {
         PublishedVideoTitles.push_back(title);
 
