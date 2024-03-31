@@ -29,6 +29,12 @@ int main() {
 
     // new way of doing the above code, using a constructor instead:
     YouTubeChannel ytChannel("CodeBeauty", "Saldina");
+    ytChannel.PublishedVideoTitles.push_back("C++ for beginners");
+    ytChannel.PublishedVideoTitles.push_back("HTML & CSS for beginners");
+    ytChannel.PublishedVideoTitles.push_back("C++ OOP");
+
+
+    YouTubeChannel ytChannel2("AmySings", "Amy");
 
     cout << "Name: " << ytChannel.Name << endl;
     cout << "OwnerName: " << ytChannel.OwnerName << endl;
@@ -40,7 +46,6 @@ int main() {
         cout << videoTitle << endl;
     } 
 
-    YouTubeChannel ytChannel2("AmySings", "Amy");
 
     cout << "Name: " << ytChannel2.Name << endl;
     cout << "OwnerName: " << ytChannel2.OwnerName << endl;
