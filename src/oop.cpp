@@ -16,6 +16,18 @@ class YouTubeChannel {
         SubscribersCount = 0;   // when we create a channel, it will 
             // initially have 0 subscribers every time
     }
+
+    void getInfo() {
+    cout << "Name: " << Name << endl;
+    cout << "OwnerName: " << OwnerName << endl;
+    cout << "SubscribersCount: " << SubscribersCount << endl;
+
+    cout << "Videos: " << endl;
+
+    for(string videoTitle: PublishedVideoTitles){
+        cout << videoTitle << endl;
+    } 
+    }
 };
 
 int main() {
@@ -36,24 +48,9 @@ int main() {
 
     YouTubeChannel ytChannel2("AmySings", "Amy");
 
-    cout << "Name: " << ytChannel.Name << endl;
-    cout << "OwnerName: " << ytChannel.OwnerName << endl;
-    cout << "SubscribersCount: " << ytChannel.SubscribersCount << endl;
-
-    cout << "Videos: " << endl;
-
-    for(string videoTitle: ytChannel.PublishedVideoTitles){
-        cout << videoTitle << endl;
-    } 
+    ytChannel.getInfo();        // invokes this as a method (using ())
+                            // instead of duplicating code
+    ytChannel2.getInfo();
 
 
-    cout << "Name: " << ytChannel2.Name << endl;
-    cout << "OwnerName: " << ytChannel2.OwnerName << endl;
-    cout << "SubscribersCount: " << ytChannel2.SubscribersCount << endl;
-
-    cout << "Videos: " << endl;
-
-    for(string videoTitle: ytChannel2.PublishedVideoTitles){
-        cout << videoTitle << endl;
-    } 
 }
