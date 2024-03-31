@@ -47,31 +47,31 @@ public:
     }
 };
 
+class CookingYouTubeChannel: public YouTubeChannel {
+    // add a constructor:
+public:
+    CookingYouTubeChannel(string name, string ownerName): YouTubeChannel(name, ownerName) {
+        // the name and ownerName don't have to be initialized 
+        // because it's inherited and this class already
+        // knows how to initialize them. That's the purpose of
+        // : YouTubeChannel(name, ownerName)
+    }
+    void Practice() {
+        cout << "practising cooking, learning new recipes, experimenting with spices..." << endl;
+    }
+};
+
 int main() {
-    // create an object
+    CookingYouTubeChannel CookingYtChannel("Amy's Kitchen", "Amy");
+    CookingYtChannel.PublishVideo("Apple pie");
+    CookingYtChannel.PublishVideo("Chocolate cake");
+    CookingYtChannel.Subscribe();
+    CookingYtChannel.Subscribe();
+    CookingYtChannel.GetInfo();
 
-    // assign values to the properties of the object
-    // ytChannel.Name = "CodeBeauty";
-    // ytChannel.OwnerName = "Saldina";
-    // ytChannel.SubscribersCount = 1800;
-    // ytChannel.PublishedVideoTitles = {"C++ for beginners video 1", "HTML & CSS video 1", "C++ OOP Video 1"};
-
-    // new way of doing the above code, using a constructor instead:
-    YouTubeChannel ytChannel("CodeBeauty", "Saldina");
-    // ytChannel.PublishedVideoTitles.push_back("C++ for beginners");
-    ytChannel.PublishVideo("C++ for beginners");
-    // ytChannel.PublishedVideoTitles.push_back("HTML & CSS for beginners");
-    ytChannel.PublishVideo("HTML & CSS for beginners");
-    // ytChannel.PublishedVideoTitles.push_back("C++ OOP");
-    ytChannel.PublishVideo("C++ OOP");
+    CookingYtChannel.Practice();
 
 
-    ytChannel.Subscribe();
-    ytChannel.Subscribe();
-    ytChannel.Subscribe();
-    ytChannel.UnSubscribe();
-    ytChannel.GetInfo();
-    
-
-
+  
+    return 0;
 }
