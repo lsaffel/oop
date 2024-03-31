@@ -5,9 +5,14 @@ using namespace std;
 class YouTubeChannel {
 private:         
     string Name;
-    string OwnerName;
     int SubscribersCount;
     list<string> PublishedVideoTitles;  // #include <list> is needed for this
+
+    // protected is needed here to allow the OwnerName 
+    // to be accessed in the derived class
+protected:
+    string OwnerName;
+
 public:
     // create a constructor for this class
     YouTubeChannel(string name, string ownerName) {
@@ -57,21 +62,21 @@ public:
         // : YouTubeChannel(name, ownerName)
     }
     void Practice() {
-        cout << "practising cooking, learning new recipes, experimenting with spices..." << endl;
+        cout<< OwnerName << " is practising cooking, learning new recipes, experimenting with spices..." << endl;
     }
 };
 
 int main() {
-    CookingYouTubeChannel CookingYtChannel("Amy's Kitchen", "Amy");
-    CookingYtChannel.PublishVideo("Apple pie");
-    CookingYtChannel.PublishVideo("Chocolate cake");
-    CookingYtChannel.Subscribe();
-    CookingYtChannel.Subscribe();
-    CookingYtChannel.GetInfo();
+    CookingYouTubeChannel cookingYtChannel("Amy's Kitchen", "Amy");
+    CookingYouTubeChannel cookingYtChannel2("John's Kitchen", "John");
+    cookingYtChannel.PublishVideo("Apple pie");
+    cookingYtChannel.PublishVideo("Chocolate cake");
+    cookingYtChannel.Subscribe();
+    cookingYtChannel.Subscribe();
+    cookingYtChannel.GetInfo();
 
-    CookingYtChannel.Practice();
+    cookingYtChannel.Practice();
 
-    
 
 
   
