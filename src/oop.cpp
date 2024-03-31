@@ -3,12 +3,12 @@
 using namespace std;
 
 class YouTubeChannel {
-    public:         // this makes the class attributes visible below
+private:         
     string Name;
     string OwnerName;
     int SubscribersCount;
     list<string> PublishedVideoTitles;  // #include <list> is needed for this
-
+public:
     // create a constructor for this class
     YouTubeChannel(string name, string ownerName) {
         Name = name;
@@ -17,8 +17,10 @@ class YouTubeChannel {
             // initially have 0 subscribers every time
     }
 
-    void getInfo() {
-    cout << "Name: " << Name << endl;
+    void GetInfo() {
+    cout << "Name: " << Name << endl;       // removed the ytChannel. from      
+                     // start of Name, since this is within the class
+        
     cout << "OwnerName: " << OwnerName << endl;
     cout << "SubscribersCount: " << SubscribersCount << endl;
 
@@ -28,12 +30,26 @@ class YouTubeChannel {
         cout << videoTitle << endl;
     } 
     }
+
+    void Subscribe() {
+        SubscribersCount++;
+    }    
+
+    void UnSubscribe() {
+        if (SubscribersCount > 0)
+            SubscribersCount--;
+    }
+
+    void PublishVideo(string title) {
+        PublishedVideoTitles.push_back(title);
+
+    }
 };
 
 int main() {
     // create an object
 
-    // assign values to the attributes(?) of the object
+    // assign values to the properties of the object
     // ytChannel.Name = "CodeBeauty";
     // ytChannel.OwnerName = "Saldina";
     // ytChannel.SubscribersCount = 1800;
@@ -41,16 +57,20 @@ int main() {
 
     // new way of doing the above code, using a constructor instead:
     YouTubeChannel ytChannel("CodeBeauty", "Saldina");
-    ytChannel.PublishedVideoTitles.push_back("C++ for beginners");
-    ytChannel.PublishedVideoTitles.push_back("HTML & CSS for beginners");
-    ytChannel.PublishedVideoTitles.push_back("C++ OOP");
+    // ytChannel.PublishedVideoTitles.push_back("C++ for beginners");
+    ytChannel.PublishVideo("C++ for beginners");
+    // ytChannel.PublishedVideoTitles.push_back("HTML & CSS for beginners");
+    ytChannel.PublishVideo("HTML & CSS for beginners");
+    // ytChannel.PublishedVideoTitles.push_back("C++ OOP");
+    ytChannel.PublishVideo("C++ OOP");
 
 
-    YouTubeChannel ytChannel2("AmySings", "Amy");
-
-    ytChannel.getInfo();        // invokes this as a method (using ())
-                            // instead of duplicating code
-    ytChannel2.getInfo();
+    ytChannel.Subscribe();
+    ytChannel.Subscribe();
+    ytChannel.Subscribe();
+    ytChannel.UnSubscribe();
+    ytChannel.GetInfo();
+    
 
 
 }
