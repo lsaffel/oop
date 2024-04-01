@@ -47,7 +47,7 @@ public:
             SubscribersCount--;
     }
 
-    // adds a new title to the videos list
+    // adds another video to this published video titles list
     void PublishVideo(string title) {
         PublishedVideoTitles.push_back(title);
     }
@@ -104,6 +104,20 @@ int main() {
     singersYtChannel.Practice();
     singersYtChannel.Practice();
     singersYtChannel.Practice();
+
+    // create a pointer of the class YouTubeChannel 
+    // and assign it to the 
+    // address of the cookingYtChannel
+
+    // A pointer of the base class can point to
+    //  a variable of the derived class
+    YouTubeChannel* yt1 = &cookingYtChannel;
+
+    YouTubeChannel* yt2 = &singersYtChannel;
+
+    // invoke the CheckAnalytics method using the pointers to the base class
+    yt1->CheckAnalytics();
+    yt2->CheckAnalytics();
 
     return 0;
 }

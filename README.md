@@ -13,3 +13,5 @@ Add an inherited class, CookingYouTubeChannel
 
 private properties are available only in that class  
 protected properties are available in derived classes also
+
+Pointers
